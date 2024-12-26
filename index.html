@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery & CSS Responsive Card Design</title>
+    <style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+}
+body{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: sans-serif;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+}
+.container{
+    padding: 40px;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.card{
+    width: 305px;
+    margin: 25px;
+    padding: 40px 30px;
+    background-color: black;
+    position: relative;
+    transition: all 0.25s ease-in-out;
+}
+.card-icon{
+    width: 100%;
+    margin-bottom: 40px;
+}
+.card-icon img{
+    width: 75px;
+}
+h6{
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+li{
+    list-style: none;
+    padding: 3px 0;
+    font-size: 16px;
+    font-weight: 300;
+    opacity: 0.7;
+}
+.card.selected::before{
+    content: "";
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    right: -25px;
+    bottom: -30px;
+    background: url(dotted.jpeg);
+    background-position: right;
+    background-size: 10px;
+    z-index: -1;
+}
+.selected{
+   border: 2px solid white;
+   border-radius: 10px;
+    box-shadow: 15px 15px 30px rgb(72, 72, 72);
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-icon">
+                <img src="bulb.jpg" alt="">
+            </div>
+            <h6>DIGITAL PRODUCTS</h6>
+            <ul>
+                <li>Digital Branding</li>
+                <li>Web & Mobile Sites</li>
+                <li>User Interface Design</li>
+                <li>Responsive Tech</li>
+           
+            </ul>
+        </div>
+        <div class="card selected">
+            <div class="card-icon">
+                <img src="digi.jpg" alt="">
+            </div>
+            <h6>UI-UX Design</h6>
+            <ul>
+                <li>Digital Strategy</li>
+                <li>User Experience Design</li>
+                <li>User Interface Design</li>
+                <li>Mobile Sites</li>
+           
+            </ul>
+        </div>
+        <div class="card">
+            <div class="card-icon">
+                <img src="web.jpg" alt="">
+            </div>
+            <h6>Web Development</h6>
+            <ul>
+                <li>Custom Platform</li>
+                <li>Back-End Executive</li>
+                <li>Interface Apps</li>
+                <li>Mobile Systems</li>
+           
+            </ul>
+        </div>
+    </div>
+    
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+$(".card").on("mouseenter" ,function(){
+    $(this).addClass("selected").siblings().removeClass("selected")
+})
+
+})
+</script>
+</html>
